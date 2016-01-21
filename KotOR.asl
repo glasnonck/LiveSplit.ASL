@@ -4,20 +4,10 @@ state("swkotor")
     int isActiveWindow : "swkotor.exe", 0x3A3A38;
 }
 
-start
-{
-}
-
-reset
-{
-}
-
-split
-{
-}
-
 isLoading
 {
+    if (game == null || game.HasExited)
+        return false;
     return current.isNotLoading == 0
         && current.isActiveWindow == 1;
 }

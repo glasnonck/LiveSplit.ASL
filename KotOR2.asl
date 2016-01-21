@@ -5,20 +5,10 @@ state("swkotor2")
     int isMoviePlaying : "ddraw.dll",    0x07A00C;
 }
 
-start
-{
-}
-
-reset
-{
-}
-
-split
-{
-}
-
 isLoading
 {
+    if (game == null || game.HasExited)
+        return false;
     return current.isNotLoading == 0
         && current.isActiveWindow != 0
         && current.isMoviePlaying == 0;
