@@ -4,10 +4,14 @@ state("swkotor")
     int isActiveWindow : "swkotor.exe", 0x3A3A38;
 }
 
+init
+{
+    timer.IsGameTimePaused = false;
+    game.Exited += (s, e) => timer.IsGameTimePaused = false;
+}
+
 isLoading
 {
-    if (game == null || game.HasExited)
-        return false;
     return current.isNotLoading == 0
         && current.isActiveWindow == 1;
 }

@@ -3,9 +3,13 @@ state("sw")
     int IsLoading : "sw.exe", 0x0C85198;
 }
 
+init
+{
+    timer.IsGameTimePaused = false;
+    game.Exited += (s, e) => timer.IsGameTimePaused = false;
+}
+
 isLoading
 {
-    if (game == null || game.HasExited)
-        return false;
     return current.IsLoading != 0;
 }

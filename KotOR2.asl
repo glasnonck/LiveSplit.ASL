@@ -5,10 +5,14 @@ state("swkotor2")
     int isMoviePlaying : "ddraw.dll",    0x07A00C;
 }
 
+init
+{
+    timer.IsGameTimePaused = false;
+    game.Exited += (s, e) => timer.IsGameTimePaused = false;
+}
+
 isLoading
 {
-    if (game == null || game.HasExited)
-        return false;
     return current.isNotLoading == 0
         && current.isActiveWindow != 0
         && current.isMoviePlaying == 0;
