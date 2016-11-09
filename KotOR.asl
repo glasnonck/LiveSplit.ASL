@@ -6,7 +6,7 @@ state("swkotor")
 
 state("swkotor", "win10")
 {
-    int isNotLoading   : "dinput8.dll", 0x02FE98;
+    int isNotLoading   : "dinput8.dll", 0x02FEB8;
     int isActiveWindow : "swkotor.exe", 0x3A3A38;
 }
 
