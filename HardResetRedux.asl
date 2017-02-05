@@ -1,6 +1,6 @@
 state("hr.x64")
 {
-    int IsLoading : "hr.x64.exe", 0x0C7A970;
+    int IsLoading : "hr.x64.exe", 0x0D6FE14;
 }
 
 init
