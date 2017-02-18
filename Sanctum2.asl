@@ -15,7 +15,7 @@ init
 isLoading
 {
 	return current.loadingComicStrip == 1
-		&& current.creatingLobby == 1
-		&& current.greySpinnerLoad > 0
-		&& current.splashScreenLoad == 1;
+		|| current.creatingLobby == 1
+		|| current.greySpinnerLoad > 0
+		|| current.splashScreenLoad == 1;
 }
