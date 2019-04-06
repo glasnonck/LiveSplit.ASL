@@ -14,9 +14,16 @@ state("swkotor2", "win10_1703")
 
 state("swkotor2", "win10_1803")
 {
-    int isNotLoading   : "dinput8.dll",  0x032238;
+    int isNotLoading   : "dinput8.dll",  0x030218;
     int isActiveWindow : "swkotor2.exe", 0x61B4E0;
-    int isMoviePlaying : "ddraw.dll",    0x07DC1C;
+    int isMoviePlaying : "ddraw.dll",    0x07CACC;
+}
+
+state("swkotor2", "win10_1809")
+{
+    int isNotLoading   : "dinput8.dll",  0x030218;
+    int isActiveWindow : "swkotor2.exe", 0x61B4E0;
+    int isMoviePlaying : "ddraw.dll",    0x07CACC;
 }
 
 init
@@ -25,6 +32,10 @@ init
         || (Environment.OSVersion.Version.Major == 6 &&
             Environment.OSVersion.Version.Minor >  1))
     {
+        if (Environment.OSVersion.Version.Build > 1805)
+        {
+            version = "win10_1809";
+        }
         if (Environment.OSVersion.Version.Build > 1800)
         {
             version = "win10_1803";
