@@ -36,7 +36,7 @@ init
         {
             version = "win10_1809";
         }
-        if (Environment.OSVersion.Version.Build > 1800)
+        else if (Environment.OSVersion.Version.Build > 1800)
         {
             version = "win10_1803";
         }
