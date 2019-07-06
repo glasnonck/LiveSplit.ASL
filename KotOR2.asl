@@ -14,7 +14,6 @@ state("swkotor2", "win10_1703")
 
 state("swkotor2", "win10_1803")
 {
-    int isNotLoading   : "dinput8.dll",  0x030218;
     int isActiveWindow : "swkotor2.exe", 0x61B4E0;
     int isMoviePlaying : "ddraw.dll",    0x07CACC;
 }
@@ -52,7 +51,4 @@ init
 
 isLoading
 {
-    return current.isNotLoading == 0
-        && current.isActiveWindow == 1
-        && current.isMoviePlaying == 0;
 }
